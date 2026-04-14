@@ -2,6 +2,8 @@
 
 [TOC]
 
+对Mobamas文件目录结构已经有了解, 并且有一定代码基础的可移步"Mobamas汉化笔记".
+
 ## 工具准备
 
 > 以下内容以Windows系统为例
@@ -163,3 +165,85 @@
 对存在逐帧演出的后篇剧情, 需要进行逐帧修改, 相对复杂.
 
 ### flash剧情-前篇剧情
+
+> 修改flash剧情脚本需要使用flasm对.swf文件解包.
+
+#### 前置工作
+
+打开剧情所在文件夹(`idols\偶像名\episodes\剧情编号`)，右键空白处, 选择“在终端中打开”.
+
+输入flasm, 回车, 确保flasm在该目录能正常运行.
+
+<img src="assets/image-20260414173752001.png" alt="image-20260414173752001" style="zoom: 50%;" />
+
+点击教程左侧的`index_cn.html`, 在右侧窗口选择"Download raw file".
+
+<img src="assets/image-20260414174233693.png" alt="image-20260414174233693" style="zoom:50%;" />
+
+
+
+把下载下来的`index_cn.html`拖入剧情所在文件夹.
+
+> `index_cn.html`对比`index.html`修改了两个部分, 一是网页语言声明从日语修改为了中文, 使中文字体能正常显示; 二是把播放的flash剧情文件从`flash.swf`修改为了`flash_cn.swf`.
+
+把文件夹内的`flash.swf`复制一份, 重命名为`flash_cn.swf`.
+
+此时目录下有以下四个文件:
+
+<img src="assets/image-20260414174646458.png" alt="image-20260414174646458" style="zoom: 67%;" />
+
+使用VScode的Live Server打开`index.html`时, 浏览器播放的是`flash.swf`; 而打开`index_cn.html`时, 浏览器播放的是`flash_cn.swf`, 以此实现原剧情脚本与汉化后剧情脚本的分离.
+
+接下来需要对`flash_cn.swf`进行汉化
+
+#### 解包
+
+右键剧情文件夹, 选择"在终端中打开", 输入 `flasm flash_cn.swf` , 回车, 此时文件夹下会出现一个`flash_cn.flm`文件.
+
+<img src="assets/image-20260414175043933.png" alt="image-20260414175043933" style="zoom:50%;" />
+
+使用VScode打开该文件, 在`frame 0`中, 可以看到两套内容一样, 断句不同的台词:
+
+<img src="assets/image-20260414175337340.png" alt="image-20260414175337340" style="zoom:50%;" />
+
+<img src="assets/image-20260414175358889.png" alt="image-20260414175358889" style="zoom: 50%;" />
+
+只需要关注形如 `push 'msg1'`下的台词即可.
+
+#### 汉化
+
+以一条台词为例:
+
+![image-20260414175820009](assets/image-20260414175820009.png)
+
+控制符`\n`用于表示"换行":
+
+<img src="assets/image-20260414175917800.png" alt="image-20260414175917800" style="zoom:50%;" />
+
+将台词替换为汉化后的台词, 断句可以自行设置, 不要超过4行:
+
+![image-20260414180019071](assets/image-20260414180019071.png)
+
+替换完成后, 使用快捷键Ctrl+S保存文件.
+
+在终端中输出`flasm -a flash_cn.flm` 将Pcode代码封装回`flash_cn.swf`.
+
+![image-20260414181303519](assets/image-20260414181303519.png)
+
+再次打开剧情网页`index_cn.html`, 文本已成功汉化.
+
+<img src="assets/image-20260414181325646.png" alt="image-20260414181325646" style="zoom:50%;" />
+
+将所有台词替换完毕之后, 使用Ctrl+F快捷键搜索`push 'name1'`和`push 'place_name'`(或者直接搜偶像名和场景名), 将偶像名和场景名也进行汉化.
+
+![image-20260414181714091](assets/image-20260414181714091.png)
+
+![image-20260414181816997](assets/image-20260414181816997.png)
+
+#### 封包
+
+所有文本替换完毕后, 在终端中输出`flasm -a flash_cn.flm` 将Pcode代码封装回`flash_cn.swf`. 汉化完毕.
+
+---
+
+**(待续)**
