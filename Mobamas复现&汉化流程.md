@@ -1,20 +1,23 @@
-# Mobamas复现&汉化流程
+### 游戏环境搭建
 
-#### 复现
+下载云盘中的`Mobamas/mobamas.zip`并解压.
 
-下载并解压Mobamas数据包, 点击文件夹内的`start_server.exe`.
+<img src="assets/image-20260514162644855.png" alt="image-20260514162644855" style="zoom:67%;" />
 
-将打开一个可以进行偶像数据浏览及翻译工作的网页.
+在云盘中的`偶像数据`文件夹中, 下载偶像数据压缩包, 并解压到`idols`文件夹.
 
-#### 台词翻译
+> **注意**: 文件夹名称要和和压缩包名称相同, 不要更改.
 
-点击网页首页的"**翻译工作台**"
+<img src="assets/image-20260514162626111.png" alt="image-20260514162626111" style="zoom:67%;" />
 
-在"译文"表格, 输入翻译后的文本. 翻译完成后, 点击"**保存到本地**".
+### 翻译工具
 
-使用右上角的"**导出**", 可以把译文和原文导出为json和markdown对照表. 也可以把导出的对照表通过"**导入**"更新到网页.
+下载云盘中的`翻译工具/IMASTranslationTool.zip`并解压:
 
-**原文**是从`idols/[idol_name]/[idol_name]_data.json`读取的;
-**译文**是从`idols/[idol_name]/[idol_name]_data_translated.json`读取/保存的.
+<img src="assets/image-20260514163046032.png" alt="image-20260514163046032" style="zoom:67%;" />
 
-译文拥有**自动保存功能**, 如果忘记保存, 可以从`unsaved/[idol_name]_unsaved.json`找回, 通过"导入"功能将其更新到网页.
+把文件夹里所有文件, 移动到游戏环境目录中:
+
+<img src="assets/image-20260514163127884.png" alt="image-20260514163127884" style="zoom:67%;" />
+
+双击`IMASTranslationTool.exe`, 浏览器访问`http://127.0.0.1:8765`, 即可进入翻译工作页面.
