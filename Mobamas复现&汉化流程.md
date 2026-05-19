@@ -10,7 +10,7 @@
 
 下载云盘中的`Mobamas/mobamas.zip`并解压. 作为游戏环境目录.
 
-<img src="assets/image-20260514162644855.png" alt="image-20260514162644855" style="zoom:67%;" />
+<img src="assets/image-20260514162644855.png" alt="image-20260514162644855" style="zoom: 50%;" />
 
 > 主数据是必不可少的. 偶像数据, Cinderella History和Refresh Room可以按需下载.
 
@@ -22,7 +22,7 @@
 
 > **注意**: 文件夹名称要和和压缩包名称相同, 不要更改.
 
-<img src="assets/image-20260514162626111.png" alt="image-20260514162626111" style="zoom:67%;" />
+<img src="assets/image-20260514162626111.png" alt="image-20260514162626111" style="zoom: 50%;" />
 
 #### Cinderella History
 
